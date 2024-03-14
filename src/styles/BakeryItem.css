@@ -8,7 +8,7 @@ img {
     display: flex;
     flex-direction: column;
     background-color:rgb(255, 241, 224);
-    margin: 1.5vh 5vh;
+    margin: 1.5vh 5vh 1.5vh 0vh;
     padding: 1vh 0vh;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -23,4 +23,10 @@ img {
   .item:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transform: rotate(5deg)
+  }
+
+  .bottom-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
