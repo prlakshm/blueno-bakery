@@ -1,0 +1,29 @@
+/* Add styling for your page here */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+.left {
+    padding: 0.45rem 9rem;
+}
+
+h1 {
+    font-family: "Inter",sans-serif;
+    font-size: 2.2rem;
+    line-height: 2.5rem;
+    font-weight: 475;
+    color: #3F3F3F;
+}
+
+.bakery-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card{
+    background-color:bisque;
+    margin: 1.5vh 5vh;
+    padding: 1vh 0vh;
+    border: 0.5rem solid #ffbeae;
+    border-radius: 2rem;
+  
+  }
