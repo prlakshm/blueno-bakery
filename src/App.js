@@ -11,23 +11,66 @@ bakeryData.forEach((item) => {
 
 function App() {
   // TODO: use useState to create a state variable to hold the state of the cart
-  /* add your cart state code here */
+
+  // Use useState to create a state variable to hold the state of the cart
+  const [cart, setCart] = useState([]);
+
+  // Calculate total price
+  const totalPrice = cart.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
   return (
     <div className="App">
-      <div class="left">
-      <h1>Blueno's Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
-
-      <div class="bakery-items">
-      {bakeryData.map((item, index) => ( // TODO: map bakeryData to BakeryItem components
-        <BakeryItem name={item.name} description={item.description} price={item.price} image={item.image}/>// replace with BakeryItem component
-      ))}
-      </div>
-      </div>
-      <div class="right">
-        <h2>Cart</h2>
-        {/* TODO: render a list of items in the cart */}
-      </div>
+      <body>
+        <div class="left">
+          <h1>Blueno's Bakery</h1>{" "}
+          {/* TODO: personalize your bakery (if you want) */}
+          <div class="bakery-items">
+            {bakeryData.map(
+              (
+                item,
+                index // TODO: map bakeryData to BakeryItem components
+              ) => (
+                <BakeryItem
+                  name={item.name}
+                  description={item.description}
+                  price={item.price}
+                  image={item.image}
+                  cart={cart}
+                  setCart={setCart}
+                /> // replace with BakeryItem component
+              )
+            )}
+          </div>
+        </div>
+        <div className="right">
+          <h2>Cart</h2>
+          {cart.length === 0 ? (
+            // If cart is empty, display a message
+            <div className="message">
+            <p>Nothing here just yet!</p>
+            </div>
+          ) : (
+            // If cart is not empty, render cart items and total price
+            <>
+              {cart.map((item, index) => (
+                <div key={index} className="cart-item">
+                  <p>
+                    {item.name} &times; {item.quantity}
+                  </p>
+                  <p>${item.price}</p>
+                </div>
+              ))}
+              <div className="total">
+                <p>Total:</p>
+                <p>${totalPrice.toFixed(2)}</p>
+              </div>
+            </>
+          )}
+        </div>
+      </body>
     </div>
   );
 }
